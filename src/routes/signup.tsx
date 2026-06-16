@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
@@ -6,13 +6,26 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight, Check } from "lucide-react";
+import { isAuthenticated, login } from "@/lib/auth";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Criar conta — Velvet Drive" }] }),
+  beforeLoad: () => {
+    if (isAuthenticated()) {
+      throw redirect({ to: "/" });
+    }
+  },
+  head: () => ({ meta: [{ title: "Criar conta — MSC Drive" }] }),
   component: SignupPage,
 });
 
 function SignupPage() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    login();
+    navigate({ to: "/" });
+  };
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 grain-bg opacity-60" />
@@ -30,7 +43,7 @@ function SignupPage() {
             <h2 className="font-display text-3xl tracking-tight">Crie sua conta</h2>
             <p className="mt-1 text-sm text-muted-foreground">15 GB grátis para começar. Sem cartão de crédito.</p>
 
-            <form className="mt-8 space-y-4">
+            <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-1.5">
                 <Label className="text-xs uppercase tracking-wider text-muted-foreground">Nome completo</Label>
                 <Input placeholder="Como podemos te chamar?" className="h-11 rounded-xl bg-background" />
@@ -55,11 +68,9 @@ function SignupPage() {
                 <span>Li e aceito os <a className="font-semibold text-primary hover:underline">Termos</a> e a <a className="font-semibold text-primary hover:underline">Política de Privacidade</a>.</span>
               </label>
 
-              <Link to="/" className="block">
-                <Button type="button" className="h-11 w-full rounded-xl bg-primary text-primary-foreground shadow-brand transition hover:opacity-95">
-                  Criar minha conta <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
+              <Button type="submit" className="h-11 w-full rounded-xl bg-primary text-primary-foreground shadow-brand transition hover:opacity-95">
+                Criar minha conta <ArrowRight className="h-4 w-4" />
+              </Button>
             </form>
 
             <p className="mt-8 text-center text-sm text-muted-foreground">
@@ -79,7 +90,7 @@ function SignupPage() {
             Comece com o<br /><em className="text-primary not-italic">pé direito.</em>
           </h1>
           <p className="mt-4 max-w-md text-sm text-muted-foreground">
-            Milhares de times escolhem Velvet pela combinação rara de segurança bancária com experiência humana.
+            Milhares de times escolhem MSC Drive pela combinação rara de segurança bancária com experiência humana.
           </p>
 
           <ul className="mt-10 space-y-3 max-w-md">

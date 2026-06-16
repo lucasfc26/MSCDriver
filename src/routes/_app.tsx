@@ -1,10 +1,16 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { AppHeader } from "@/components/app-header";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { isAuthenticated } from "@/lib/auth";
 
 export const Route = createFileRoute("/_app")({
+  beforeLoad: () => {
+    if (!isAuthenticated()) {
+      throw redirect({ to: "/login" });
+    }
+  },
   component: AppLayout,
 });
 

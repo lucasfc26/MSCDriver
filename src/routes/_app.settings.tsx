@@ -9,6 +9,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Monitor, Smartphone, Shield, Bell, Palette, User, KeyRound, LogOut } from "lucide-react";
+import { useTheme } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
+import type { Theme } from "@/lib/theme";
 
 export const Route = createFileRoute("/_app/settings")({
   head: () => ({ meta: [{ title: "Configurações — Velvet" }] }),
@@ -39,18 +42,18 @@ function SettingsPage() {
             <div className="flex flex-col gap-6 md:flex-row">
               <div className="flex flex-col items-center gap-3">
                 <Avatar className="h-24 w-24">
-                  <AvatarImage src="https://i.pravatar.cc/200?img=12" />
-                  <AvatarFallback>LA</AvatarFallback>
+                  <AvatarImage src="" />
+                  <AvatarFallback>MC</AvatarFallback>
                 </Avatar>
                 <Button size="sm" variant="outline" className="rounded-xl">Trocar foto</Button>
               </div>
               <div className="grid flex-1 gap-4 sm:grid-cols-2">
-                <Field label="Nome" defaultValue="Laura Amaral" />
-                <Field label="Sobrenome" defaultValue="Costa" />
-                <Field label="E-mail" defaultValue="laura@velvet.co" type="email" />
-                <Field label="Cargo" defaultValue="Head of Design" />
+                <Field label="Nome" defaultValue="Marcony Silva" />
+                <Field label="Sobrenome" defaultValue="Cunha" />
+                <Field label="E-mail" defaultValue="marconyscunha@msn.com" type="email" />
+                <Field label="Cargo" defaultValue="Professor Universitário" />
                 <div className="sm:col-span-2">
-                  <Field label="Bio" defaultValue="Designer focada em sistemas escaláveis e estética calorosa." />
+                  <Field label="Bio" defaultValue="Professor Universitário de Física Quântica UECE." />
                 </div>
               </div>
             </div>
@@ -127,29 +130,66 @@ function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="appearance" className="space-y-3">
-          <Card className="rounded-2xl border-border p-6 shadow-soft">
-            <h2 className="font-semibold">Tema da interface</h2>
-            <Separator className="my-5" />
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {[
-                { name: "Claro", bg: "bg-[#F5F0EB]", fg: "bg-primary" },
-                { name: "Escuro", bg: "bg-[#1c1614]", fg: "bg-primary" },
-                { name: "Sistema", bg: "bg-gradient-to-br from-[#F5F0EB] to-[#1c1614]", fg: "bg-primary" },
-              ].map((t, i) => (
-                <button key={i} className="rounded-2xl border border-border bg-card p-3 text-left transition hover:border-primary/40">
-                  <div className={`h-24 w-full rounded-xl ${t.bg} relative overflow-hidden`}>
-                    <div className={`absolute left-3 top-3 h-2 w-12 rounded ${t.fg}`} />
-                    <div className="absolute left-3 top-7 h-1.5 w-20 rounded bg-white/60" />
-                    <div className="absolute left-3 top-10 h-1.5 w-16 rounded bg-white/40" />
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-sm font-medium">{t.name}{i===0 && <Badge className="rounded-full bg-primary text-primary-foreground hover:bg-primary">Atual</Badge>}</div>
-                </button>
-              ))}
-            </div>
-          </Card>
+          <AppearanceSettings />
         </TabsContent>
       </Tabs>
     </div>
+  );
+}
+
+const THEME_OPTIONS: { id: Theme; name: string; bg: string; fg: string }[] = [
+  { id: "light", name: "Claro", bg: "bg-[#F4F4F5]", fg: "bg-primary" },
+  { id: "dark", name: "Escuro", bg: "bg-[#18181B]", fg: "bg-primary" },
+  { id: "system", name: "Sistema", bg: "bg-gradient-to-br from-[#F4F4F5] to-[#18181B]", fg: "bg-primary" },
+];
+
+function AppearanceSettings() {
+  const { theme, resolvedTheme, setTheme } = useTheme();
+
+  return (
+    <Card className="rounded-2xl border-border p-6 shadow-soft">
+      <h2 className="font-semibold">Tema da interface</h2>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Escolha como o Velvet deve aparecer. O modo Sistema segue automaticamente a preferência do seu dispositivo.
+      </p>
+      <Separator className="my-5" />
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {THEME_OPTIONS.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            onClick={() => setTheme(option.id)}
+            className={cn(
+              "rounded-2xl border bg-card p-3 text-left transition hover:border-primary/40",
+              theme === option.id ? "border-primary ring-2 ring-primary/20" : "border-border",
+            )}
+          >
+            <div className={`h-24 w-full rounded-xl ${option.bg} relative overflow-hidden`}>
+              {option.id === "system" && (
+                <div className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-card/90 text-muted-foreground shadow-sm">
+                  <Monitor className="h-3.5 w-3.5" />
+                </div>
+              )}
+              <div className={`absolute left-3 top-3 h-2 w-12 rounded ${option.fg}`} />
+              <div className="absolute left-3 top-7 h-1.5 w-20 rounded bg-white/60" />
+              <div className="absolute left-3 top-10 h-1.5 w-16 rounded bg-white/40" />
+            </div>
+            <div className="mt-3 flex items-center justify-between text-sm font-medium">
+              {option.name}
+              {theme === option.id && (
+                <Badge className="rounded-full bg-primary text-primary-foreground hover:bg-primary">Atual</Badge>
+              )}
+            </div>
+          </button>
+        ))}
+      </div>
+      {theme === "system" && (
+        <p className="mt-4 text-sm text-muted-foreground">
+          No momento, o dispositivo está usando o tema{" "}
+          <span className="font-medium text-foreground">{resolvedTheme === "dark" ? "escuro" : "claro"}</span>.
+        </p>
+      )}
+    </Card>
   );
 }
 

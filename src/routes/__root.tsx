@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { themeInitScript } from "../lib/theme";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -25,10 +27,10 @@ function NotFoundComponent() {
         </p>
         <div className="mt-6">
           <Link
-            to="/"
+            to="/login"
             className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-brand transition hover:opacity-95"
           >
-            Voltar para o Drive
+            Ir para o login
           </Link>
         </div>
       </div>
@@ -109,8 +111,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <HeadContent />
       </head>
       <body>
@@ -126,10 +129,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider delayDuration={150}>
-        <Outlet />
-        <Toaster position="bottom-right" richColors closeButton />
-      </TooltipProvider>
+      <ThemeProvider>
+        <TooltipProvider delayDuration={150}>
+          <Outlet />
+          <Toaster position="bottom-right" richColors closeButton />
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

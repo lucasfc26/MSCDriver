@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
@@ -8,14 +8,27 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Eye, EyeOff, ArrowRight, ShieldCheck, Cloud, Folder, File, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { isAuthenticated, login } from "@/lib/auth";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Entrar — Velvet Drive" }] }),
+  beforeLoad: () => {
+    if (isAuthenticated()) {
+      throw redirect({ to: "/" });
+    }
+  },
+  head: () => ({ meta: [{ title: "Entrar — MSC Drive" }] }),
   component: LoginPage,
 });
 
 function LoginPage() {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    login();
+    navigate({ to: "/" });
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
@@ -42,7 +55,7 @@ function LoginPage() {
               Seu trabalho,<br /> <em className="text-primary not-italic">organizado com elegância.</em>
             </h1>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              Velvet Drive é o espaço onde times exigentes guardam, compartilham e
+              MSC Drive é o espaço onde times exigentes guardam, compartilham e
               protegem seus arquivos com a tranquilidade de um cofre e a leveza de um caderno.
             </p>
           </div>
@@ -102,7 +115,7 @@ function LoginPage() {
             <h2 className="font-display text-3xl tracking-tight">Bem-vinda de volta</h2>
             <p className="mt-1 text-sm text-muted-foreground">Acesse seu Drive em segundos.</p>
 
-            <form className="mt-8 space-y-4">
+            <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-1.5">
                 <Label className="text-xs uppercase tracking-wider text-muted-foreground">E-mail</Label>
                 <Input type="email" placeholder="voce@empresa.com" className="h-11 rounded-xl bg-background" />
@@ -132,14 +145,12 @@ function LoginPage() {
                 <Checkbox defaultChecked /> Lembrar-me neste dispositivo
               </label>
 
-              <Link to="/" className="block">
-                <Button
-                  type="button"
-                  className="h-11 w-full rounded-xl bg-primary text-primary-foreground shadow-brand transition hover:opacity-95"
-                >
-                  Entrar <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
+              <Button
+                type="submit"
+                className="h-11 w-full rounded-xl bg-primary text-primary-foreground shadow-brand transition hover:opacity-95"
+              >
+                Entrar <ArrowRight className="h-4 w-4" />
+              </Button>
             </form>
 
             <div className="my-6 flex items-center gap-3">

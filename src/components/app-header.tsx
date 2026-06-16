@@ -23,13 +23,21 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { NewModal } from "./new-modal";
 import { CommandPalette } from "./command-palette";
 import { toast } from "sonner";
+import { logout } from "@/lib/auth";
 
 export function AppHeader({ onMenu }: { onMenu?: () => void }) {
   const [newOpen, setNewOpen] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate({ to: "/login" });
+  };
 
   return (
     <>
@@ -101,10 +109,10 @@ export function AppHeader({ onMenu }: { onMenu?: () => void }) {
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-2 rounded-xl border border-border bg-card p-1 pr-2 transition hover:bg-accent">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src="https://i.pravatar.cc/64?img=12" alt="" />
-                    <AvatarFallback className="bg-primary text-primary-foreground text-xs font-semibold">LA</AvatarFallback>
+                    <AvatarImage src="" alt="" />
+                    <AvatarFallback className="bg-primary text-primary-foreground text-xs font-semibold">MC</AvatarFallback>
                   </Avatar>
-                  <span className="hidden text-sm font-medium md:block">Laura A.</span>
+                  <span className="hidden text-sm font-medium md:block">Marcony C.</span>
                   <ChevronDown className="hidden h-3.5 w-3.5 text-muted-foreground md:block" />
                 </button>
               </DropdownMenuTrigger>
@@ -115,8 +123,8 @@ export function AppHeader({ onMenu }: { onMenu?: () => void }) {
                     <AvatarFallback>LA</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-semibold">Laura Amaral</div>
-                    <div className="truncate text-xs text-muted-foreground">laura@velvet.co</div>
+                    <div className="truncate text-sm font-semibold">Marcony C.</div>
+                    <div className="truncate text-xs text-muted-foreground">marconyscunha@msn.com</div>
                   </div>
                 </div>
                 <DropdownMenuSeparator />
@@ -124,7 +132,9 @@ export function AppHeader({ onMenu }: { onMenu?: () => void }) {
                 <DropdownMenuItem className="rounded-xl"><SettingsIcon className="h-4 w-4" /> Configurações</DropdownMenuItem>
                 <DropdownMenuItem className="rounded-xl"><KeyRound className="h-4 w-4" /> Trocar conta</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="rounded-xl text-primary"><LogOut className="h-4 w-4" /> Sair</DropdownMenuItem>
+                <DropdownMenuItem className="rounded-xl text-primary" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4" /> Sair
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
