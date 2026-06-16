@@ -10,7 +10,7 @@ import { Download, Lock, ShieldCheck, FileText, Eye, Share2 } from "lucide-react
 import { useState } from "react";
 
 export const Route = createFileRoute("/s/$id")({
-  head: () => ({ meta: [{ title: "Arquivo compartilhado — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Arquivo compartilhado — MSC Drive" }] }),
   component: PublicSharePage,
 });
 
@@ -48,8 +48,8 @@ function PublicSharePage() {
                   <span>Atualizado há 2 horas</span>
                   <span>·</span>
                   <div className="flex items-center gap-1.5">
-                    <Avatar className="h-5 w-5"><AvatarFallback className="text-[9px]">LA</AvatarFallback></Avatar>
-                    <span>laura@velvet.co</span>
+                    <Avatar className="h-5 w-5"><AvatarFallback className="text-[9px]">MC</AvatarFallback></Avatar>
+                    <span>marconyscunha@msn.com</span>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@ function PublicSharePage() {
 
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-            Conexão criptografada · Verificado por Velvet Drive
+            Conexão criptografada · Verificado por MSC Drive
           </div>
         </motion.div>
       </main>

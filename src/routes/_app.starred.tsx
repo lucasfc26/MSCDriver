@@ -5,7 +5,7 @@ import { STARRED } from "@/lib/demo-data";
 import { Star } from "lucide-react";
 
 export const Route = createFileRoute("/_app/starred")({
-  head: () => ({ meta: [{ title: "Favoritos — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Favoritos — MSC Drive" }] }),
   component: () => (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
       <header>

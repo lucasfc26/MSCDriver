@@ -10,7 +10,7 @@ import { Trash2, RotateCcw, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_app/trash")({
-  head: () => ({ meta: [{ title: "Lixeira — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Lixeira — MSC Drive" }] }),
   component: TrashPage,
 });
 

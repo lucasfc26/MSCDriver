@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import type { Theme } from "@/lib/theme";
 
 export const Route = createFileRoute("/_app/settings")({
-  head: () => ({ meta: [{ title: "Configurações — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Configurações — MSC Drive" }] }),
   component: SettingsPage,
 });
 
@@ -150,7 +150,7 @@ function AppearanceSettings() {
     <Card className="rounded-2xl border-border p-6 shadow-soft">
       <h2 className="font-semibold">Tema da interface</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        Escolha como o Velvet deve aparecer. O modo Sistema segue automaticamente a preferência do seu dispositivo.
+        Escolha como o MSC deve aparecer. O modo Sistema segue automaticamente a preferência do seu dispositivo.
       </p>
       <Separator className="my-5" />
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">

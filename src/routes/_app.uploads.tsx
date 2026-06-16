@@ -14,7 +14,7 @@ const QUEUE = [
 ];
 
 export const Route = createFileRoute("/_app/uploads")({
-  head: () => ({ meta: [{ title: "Uploads — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Uploads — MSC Drive" }] }),
   component: () => (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
       <header>

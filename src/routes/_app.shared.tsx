@@ -18,7 +18,7 @@ import { Copy, Link2, Lock, Eye, Pencil, Calendar, Plus } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_app/shared")({
-  head: () => ({ meta: [{ title: "Compartilhamentos — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Compartilhamentos — MSC Drive" }] }),
   component: SharedPage,
 });
 

@@ -81,15 +81,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Velvet Drive — Armazenamento em nuvem premium" },
+      { title: "MSC Drive — Armazenamento em nuvem premium" },
       {
         name: "description",
         content:
-          "Velvet Drive é a forma sofisticada de organizar, compartilhar e proteger os arquivos da sua empresa em nuvem.",
+          "MSC Drive é a forma sofisticada de organizar, compartilhar e proteger os arquivos da sua empresa em nuvem.",
       },
-      { name: "author", content: "Velvet" },
-      { property: "og:title", content: "Velvet Drive" },
-      { property: "og:description", content: "Armazenamento em nuvem premium para times exigentes." },
+      { name: "author", content: "Maselcorp" },
+      { property: "og:title", content: "MSC Drive" },
+      { property: "og:description", content: "Armazenamento em nuvem premium para empresas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

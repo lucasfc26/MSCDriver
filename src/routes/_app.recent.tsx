@@ -5,7 +5,7 @@ import { RECENT } from "@/lib/demo-data";
 import { Clock3 } from "lucide-react";
 
 export const Route = createFileRoute("/_app/recent")({
-  head: () => ({ meta: [{ title: "Recentes — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Recentes — MSC Drive" }] }),
   component: () => (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
       <header>

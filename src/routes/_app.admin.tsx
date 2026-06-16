@@ -11,7 +11,7 @@ import { Users2, HardDrive, TrendingUp, Activity, Search, MoreHorizontal, Shield
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_app/admin")({
-  head: () => ({ meta: [{ title: "Administração — Velvet" }] }),
+  head: () => ({ meta: [{ title: "Administração — MSC Drive" }] }),
   component: AdminPage,
 });
 

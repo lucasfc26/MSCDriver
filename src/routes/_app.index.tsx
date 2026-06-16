@@ -67,8 +67,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/_app/")({
   head: () => ({
     meta: [
-      { title: "Meu Drive — Velvet" },
-      { name: "description", content: "Visão geral do seu armazenamento Velvet Drive." },
+      { title: "Meu Drive — MSC Drive" },
+      { name: "description", content: "Visão geral do seu armazenamento MSC Drive." },
     ],
   }),
   component: DashboardPage,
