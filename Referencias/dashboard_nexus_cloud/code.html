@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Cloud - Dashboard Principal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-secondary-container": "#67615f",
+                        "tertiary-container": "#006e9d",
+                        "outline-variant": "#e4beba",
+                        "surface-tint": "#b91d20",
+                        "on-background": "#271816",
+                        "surface-bright": "#fff8f7",
+                        "surface-container": "#ffe9e6",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00557a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f7",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#3e2c2a",
+                        "secondary-fixed-dim": "#cdc5c2",
+                        "outline": "#8f706c",
+                        "on-primary-container": "#ffe0dd",
+                        "secondary": "#635d5b",
+                        "on-surface": "#271816",
+                        "surface-dim": "#f0d4d0",
+                        "primary": "#a20513",
+                        "on-secondary-fixed": "#1e1b19",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "on-tertiary-fixed": "#001e2f",
+                        "secondary-container": "#e7dedb",
+                        "inverse-on-surface": "#ffedea",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb4ac",
+                        "surface": "#fff8f7",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "surface-container-low": "#fff0ef",
+                        "secondary-fixed": "#e9e1de",
+                        "tertiary-fixed": "#c8e6ff",
+                        "tertiary-fixed-dim": "#88ceff",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#f9dcd9",
+                        "primary-container": "#c62828",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "on-primary-fixed": "#410003",
+                        "on-primary-fixed-variant": "#93000e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#4b4644",
+                        "on-tertiary-container": "#d1eaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- SideNavBar -->
+<nav class="w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant bg-surface dark:bg-surface-dim flex flex-col py-stack-lg z-50">
+<div class="px-6 mb-8 flex flex-col gap-2">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Nexus Cloud</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enterprise Storage</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="flex flex-col gap-1">
+<li><a class="flex items-center gap-3 px-4 py-2 text-primary dark:text-primary-fixed-dim font-bold opacity-90 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">cloud</span> My Drive</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">schedule</span> Recent</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">group</span> Shared</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">grade</span> Favorites</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">delete</span> Trash</a></li>
+</ul>
+<div class="mt-8 mb-4 px-4">
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest">Admin</span>
+</div>
+<ul class="flex flex-col gap-1">
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">cloud_upload</span> Uploads</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">settings</span> Settings</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined">admin_panel_settings</span> Admin</a></li>
+</ul>
+</div>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary-container text-on-primary py-3 px-4 rounded-lg font-body-md font-medium hover:opacity-90 transition-opacity">
+                Upgrade Storage
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-[260px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-40 border-b border-outline-variant bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md flex justify-between items-center h-16 px-margin-desktop">
+<div class="flex items-center w-1/3">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary/10 transition-all rounded-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded-md bg-surface text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 font-body-md transition-colors placeholder:text-on-surface-variant/50" placeholder="Search files, folders..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface text-on-surface border border-outline-variant px-4 py-2 rounded-lg font-body-md hover:bg-secondary-container transition-colors">Upload</button>
+<button class="bg-primary-container text-on-primary px-4 py-2 rounded-lg font-body-md hover:opacity-90 transition-opacity">New</button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="text-on-secondary-container hover:text-primary transition-colors hover:bg-surface-container-high p-2 rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-secondary-container hover:text-primary transition-colors hover:bg-surface-container-high p-2 rounded-full"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<main class="flex-1 p-margin-desktop space-y-stack-lg max-w-container-max mx-auto w-full">
+<!-- Summary Cards Bento -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Storage -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Armazenamento</h3>
+<span class="material-symbols-outlined text-primary">cloud_done</span>
+</div>
+<div class="mb-2">
+<span class="font-headline-lg text-headline-lg">45<span class="text-headline-md text-on-surface-variant">.2 GB</span></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">de 100 GB usados</p>
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Files -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total de Arquivos</h3>
+<span class="material-symbols-outlined text-tertiary">description</span>
+</div>
+<div class="mb-2">
+<span class="font-headline-lg text-headline-lg">12,405</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">+234 esta semana</p>
+</div>
+<!-- Folders -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pastas</h3>
+<span class="material-symbols-outlined text-secondary">folder</span>
+</div>
+<div class="mb-2">
+<span class="font-headline-lg text-headline-lg">142</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">12 compartilhadas</p>
+</div>
+<!-- Shares -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Compart. Ativos</h3>
+<span class="material-symbols-outlined text-primary">link</span>
+</div>
+<div class="mb-2">
+<span class="font-headline-lg text-headline-lg">28</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Links públicos ativos</p>
+</div>
+</section>
+<!-- Quick Access -->
+<section class="space-y-4">
+<h2 class="font-headline-md text-headline-md">Acesso Rápido</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- File Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:border-primary/30 transition-all cursor-pointer">
+<div class="h-24 bg-surface-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium truncate">Relatório_Q3_2023.pdf</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Aberto há 2h</p>
+</div>
+</div>
+<!-- File Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:border-primary/30 transition-all cursor-pointer">
+<div class="h-24 bg-surface-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-tertiary">image</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium truncate">Brand_Assets_Final.zip</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Aberto ontem</p>
+</div>
+</div>
+<!-- File Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:border-primary/30 transition-all cursor-pointer">
+<div class="h-24 bg-surface-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary">folder_shared</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium truncate">Projeto Alpha</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Equipe de Design</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Files Table -->
+<section class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md">Arquivos Recentes</h2>
+<button class="text-primary hover:text-primary-container font-body-md transition-colors">Ver todos</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="py-3 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-medium">Nome</th>
+<th class="py-3 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-medium">Proprietário</th>
+<th class="py-3 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-medium">Data</th>
+<th class="py-3 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-medium">Tamanho</th>
+<th class="py-3 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-medium text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">description</span>
+<span>Contrato_Servicos_v2.docx</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Eu</td>
+<td class="py-4 px-6 text-on-surface-variant">Hoje, 14:30</td>
+<td class="py-4 px-6 text-on-surface-variant">1.2 MB</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">table</span>
+<span>Planilha_Orcamento_2024.xlsx</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Ana Costa</td>
+<td class="py-4 px-6 text-on-surface-variant">Ontem, 09:15</td>
+<td class="py-4 px-6 text-on-surface-variant">4.5 MB</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">movie</span>
+<span>Apresentacao_Produto.mp4</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Eu</td>
+<td class="py-4 px-6 text-on-surface-variant">12 Out, 2023</td>
+<td class="py-4 px-6 text-on-surface-variant">245 MB</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+</body></html>

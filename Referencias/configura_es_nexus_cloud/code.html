@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Definições - Nexus Cloud</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "on-secondary-container": "#67615f",
+                      "tertiary-container": "#006e9d",
+                      "outline-variant": "#e4beba",
+                      "surface-tint": "#b91d20",
+                      "on-background": "#271816",
+                      "surface-bright": "#fff8f7",
+                      "surface-container": "#ffe9e6",
+                      "error": "#ba1a1a",
+                      "tertiary": "#00557a",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fff8f7",
+                      "primary-fixed": "#ffdad6",
+                      "inverse-surface": "#3e2c2a",
+                      "secondary-fixed-dim": "#cdc5c2",
+                      "outline": "#8f706c",
+                      "on-primary-container": "#ffe0dd",
+                      "secondary": "#635d5b",
+                      "on-surface": "#271816",
+                      "surface-dim": "#f0d4d0",
+                      "primary": "#a20513",
+                      "on-secondary-fixed": "#1e1b19",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#5b403d",
+                      "on-tertiary-fixed": "#001e2f",
+                      "secondary-container": "#e7dedb",
+                      "inverse-on-surface": "#ffedea",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#ffb4ac",
+                      "surface": "#fff8f7",
+                      "primary-fixed-dim": "#ffb4ac",
+                      "surface-container-low": "#fff0ef",
+                      "secondary-fixed": "#e9e1de",
+                      "tertiary-fixed": "#c8e6ff",
+                      "tertiary-fixed-dim": "#88ceff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#f9dcd9",
+                      "primary-container": "#c62828",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#f9dcd9",
+                      "surface-container-high": "#ffe2de",
+                      "on-primary-fixed": "#410003",
+                      "on-primary-fixed-variant": "#93000e",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#4b4644",
+                      "on-tertiary-container": "#d1eaff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "unit": "4px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F0EB;
+            color: #271816;
+        }
+        
+        .premium-card {
+            background: #FFFFFF;
+            border: 1px solid #E0D7D0;
+            border-radius: 16px;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .premium-card:hover {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+
+        .input-premium {
+            background: #FFFFFF;
+            border: 1px solid #E0D7D0;
+            transition: all 0.2s ease;
+        }
+        
+        .input-premium:focus {
+            border-color: #C62828;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #C62828;
+            color: white;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #a20513;
+        }
+
+        .btn-secondary {
+            background-color: #FFFFFF;
+            color: #271816;
+            border: 1px solid #E0D7D0;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F5F0EB;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex bg-[#F5F0EB]">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col h-screen py-spacing-stack-lg bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-on-surface-variant/20">
+<div class="px-gutter mb-stack-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-[32px] text-primary" data-weight="fill">cloud</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Nexus Cloud</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Enterprise Storage</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-unit">
+<!-- Navigation Items -->
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="cloud">cloud</span>
+<span class="font-label-md text-label-md">My Drive</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">Recent</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Shared</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+<span class="font-label-md text-label-md">Favorites</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span class="font-label-md text-label-md">Trash</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+<span class="font-label-md text-label-md">Uploads</span>
+</a>
+<!-- Active Settings Tab -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary dark:text-primary-fixed-dim font-bold hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1 opacity-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-colors rounded-lg mx-2 mb-1" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin</span>
+</a>
+</div>
+<div class="px-gutter mt-auto pt-stack-lg">
+<button class="w-full btn-primary font-label-md text-label-md py-3 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">upgrade</span>
+                Upgrade Storage
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<div class="flex-1 ml-0 md:ml-[260px] flex flex-col min-h-screen">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center h-16 px-spacing-margin-desktop bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md text-primary dark:text-primary-fixed-dim docked full-width top-0 sticky z-40 border-b border-outline-variant dark:border-on-surface-variant/20">
+<!-- Left: Search (on_left config) -->
+<div class="flex-1 max-w-md hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/50 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full h-10 pl-10 pr-4 input-premium rounded-full text-body-md text-on-surface focus:ring-2 focus:ring-primary/10 transition-all" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<!-- Mobile Logo / Fallback -->
+<div class="md:hidden flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px] text-primary" data-weight="fill">cloud</span>
+<span class="font-headline-md text-headline-md-mobile font-bold text-primary">Nexus</span>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-4">
+<button class="btn-secondary px-4 py-2 font-label-md text-label-md hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+                    Upload
+                </button>
+<button class="btn-primary px-4 py-2 font-label-md text-label-md hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New
+                </button>
+<div class="flex items-center gap-2 ml-2 border-l border-outline-variant pl-4">
+<button class="p-2 text-on-secondary-container hover:bg-surface-container-high rounded-full transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant focus:ring-2 focus:ring-primary/10 transition-all">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a person looking forward against a clean, light beige background. The lighting is soft and bright, emphasizing a modern, trustworthy, and sophisticated aesthetic consistent with a premium corporate or SaaS environment. The colors are predominantly natural with subtle warm undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVZ52HL30Z5BCH-INtQ4gcbEsnsIvfQraK37nTmgfzEg1tvea3Of1dyzdjCCCzSuAaIP-tAnz1Zm0y8UlV-H15lq2tPmJ8IkNJKIxVGucQHB1Ks04fyuYPBaTIBwNQ2YI3lYmSlaP5qbtypbNSP4wBcdz1LMPAC9tBMZuvH06HY8Efx1wGqcY5Qk9aKDGeyA9GRq4VQ0r03N8ITMrB7VvhCW3KJz1TQ2iOaWU8LvsQn9zLlCl35kKDHw8WNeMuxoCAJU4QT596Chk-"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Settings Canvas -->
+<main class="flex-1 p-spacing-margin-mobile md:p-spacing-margin-desktop max-w-[1024px] mx-auto w-full">
+<div class="mb-stack-lg">
+<h2 class="font-display-lg text-display-lg md:text-display-lg text-on-surface mb-2">Definições</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Gerencie a sua conta, segurança e preferências do Nexus Cloud.</p>
+</div>
+<!-- Modern Tabbed Interface Layout -->
+<div class="flex flex-col lg:flex-row gap-gutter items-start">
+<!-- Settings Sidebar Navigation -->
+<nav class="w-full lg:w-64 flex-shrink-0 sticky top-24">
+<ul class="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 hide-scrollbar">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white shadow-sm border border-outline-variant text-primary font-label-md text-label-md whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">person</span>
+                                Perfil
+                            </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-secondary-container hover:bg-white hover:shadow-sm border border-transparent hover:border-outline-variant transition-all font-label-md text-label-md whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-[20px]">security</span>
+                                Segurança
+                            </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-secondary-container hover:bg-white hover:shadow-sm border border-transparent hover:border-outline-variant transition-all font-label-md text-label-md whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+                                Preferências
+                            </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-secondary-container hover:bg-white hover:shadow-sm border border-transparent hover:border-outline-variant transition-all font-label-md text-label-md whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+                                Aparência
+                            </a>
+</li>
+<li class="pt-4 mt-4 border-t border-outline-variant lg:block hidden">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-error hover:bg-error-container transition-all font-label-md text-label-md whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                                Terminar Sessão
+                            </a>
+</li>
+</ul>
+</nav>
+<!-- Settings Content Area -->
+<div class="flex-1 w-full space-y-gutter">
+<!-- Profile Section (Active) -->
+<section class="premium-card p-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Perfil Pessoal</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-lg items-start mb-stack-lg pb-stack-lg border-b border-outline-variant">
+<div class="flex flex-col items-center gap-4">
+<div class="w-24 h-24 rounded-full bg-surface-variant overflow-hidden border-2 border-outline-variant relative group cursor-pointer">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up, highly detailed portrait of a professional looking directly at the camera, set against a pristine white background. The soft, diffuse lighting emphasizes a modern, sophisticated corporate aesthetic. The overall mood is confident and calm, perfectly suited for a high-end SaaS profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHvAeoxuy4BbErkKY_p7vVHkg4jTd7be1qGFxG39PheeTJbUojILv69H-ZulP2AipbjiOFRE1o9DHkwhnVMsmsfdPswLF77gympT7b0i5wS0OaAMjVjkuv2KlYwU1am97YmzhELuI_wrgv99MYAZMgwoIarymmPr-hQOGxojfFjkaWZGFNXxlGfrWxdUeEFlsRfYT-V3eeWUn18ESSZRbJ7K6eahX0ffw1WIVFnThTK6jRHC22jlmmVgaxNmo9DnRahvYR8VGDwKRj"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">photo_camera</span>
+</div>
+</div>
+<button class="btn-secondary px-3 py-1.5 font-label-md text-label-md text-xs">Alterar Foto</button>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-stack-md w-full">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block">Nome Próprio</label>
+<input class="w-full h-11 px-4 input-premium rounded-lg text-body-md font-body-md text-on-surface" type="text" value="João"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block">Apelido</label>
+<input class="w-full h-11 px-4 input-premium rounded-lg text-body-md font-body-md text-on-surface" type="text" value="Silva"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant block">Email Profissional</label>
+<input class="w-full h-11 px-4 input-premium rounded-lg text-body-md font-body-md text-on-surface bg-surface-container-low cursor-not-allowed" disabled="" type="email" value="joao.silva@empresa.pt"/>
+<p class="text-xs text-on-surface-variant mt-1">Contacte o administrador para alterar o email.</p>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3">
+<button class="btn-secondary px-5 py-2.5 font-label-md text-label-md">Cancelar</button>
+<button class="btn-primary px-5 py-2.5 font-label-md text-label-md">Guardar Alterações</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+<style>
+        /* Utility to hide scrollbar but keep functionality for horizontal nav */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

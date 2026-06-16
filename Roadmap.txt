@@ -1,0 +1,303 @@
+# Prompt: Construir um sistema tipo Google Drive/OneDrive self-hosted
+
+Você é um desenvolvedor sênior especialista em arquitetura de software, segurança, backend, frontend e infraestrutura DevOps.
+
+Quero que você desenvolva um sistema completo de armazenamento de arquivos self-hosted, semelhante ao Google Drive, OneDrive ou Dropbox, para ser instalado em uma VPS Linux com bastante espaço em disco.
+
+## Objetivo
+
+Criar uma plataforma própria de armazenamento em nuvem, onde usuários autenticados possam gerenciar seus arquivos através de uma interface web e posteriormente sincronizar arquivos diretamente pelo computador, semelhante ao OneDrive.
+
+O sistema deve ser modular, escalável e preparado para milhares de arquivos.
+
+## Stack desejada
+
+* Frontend: Next.js (App Router) + TypeScript + TailwindCSS + shadcn/ui.
+* Backend: Node.js + NestJS + TypeScript.
+* Banco de dados: PostgreSQL.
+* ORM: Prisma.
+* Armazenamento inicial: sistema de arquivos local da VPS.
+* Cache e filas: Redis + BullMQ.
+* Autenticação: JWT com refresh token.
+* Containers: Docker e Docker Compose.
+* Reverse Proxy: Nginx.
+* Upload resumível: protocolo TUS.
+* WebSocket: para atualização em tempo real.
+* Testes: Jest.
+* Documentação automática: Swagger/OpenAPI.
+
+A arquitetura deve ser organizada em monorepo.
+
+## Funcionalidades da versão web
+
+### Autenticação
+
+* Cadastro de usuários.
+* Login com e-mail e senha.
+* Recuperação de senha via e-mail.
+* Refresh Token.
+* Logout.
+* Sessões ativas.
+* Alteração de senha.
+* 2FA (Google Authenticator/TOTP).
+* Controle de tentativas de login.
+* Rate limiting.
+
+### Dashboard
+
+Após o login, o usuário deve visualizar:
+
+* Espaço utilizado.
+* Espaço disponível.
+* Quantidade de arquivos.
+* Quantidade de pastas.
+* Arquivos recentes.
+* Compartilhamentos ativos.
+
+## Gerenciamento de arquivos
+
+Permitir:
+
+* Upload de arquivos.
+* Upload múltiplo.
+* Upload por arrastar e soltar.
+* Upload resumível para arquivos grandes.
+* Barra de progresso.
+* Pausar e continuar uploads.
+* Cancelar upload.
+* Download de arquivos.
+* Renomear arquivos.
+* Mover arquivos.
+* Copiar arquivos.
+* Excluir arquivos.
+* Restaurar arquivos excluídos.
+* Exclusão definitiva.
+
+## Estrutura de pastas
+
+Permitir:
+
+* Criar pastas.
+* Criar subpastas ilimitadas.
+* Renomear pastas.
+* Mover pastas.
+* Excluir pastas.
+* Restaurar pastas.
+* Navegação por breadcrumb.
+* Pesquisa por nome.
+
+A estrutura deve funcionar como uma árvore hierárquica semelhante ao Google Drive.
+
+## Lixeira
+
+Ao excluir arquivos ou pastas:
+
+* Não apagar imediatamente.
+* Mover para uma lixeira.
+* Permitir restauração.
+* Permitir exclusão permanente.
+* Configuração automática para exclusão definitiva após X dias.
+
+## Compartilhamento
+
+Permitir compartilhar:
+
+### Arquivos
+
+* Link público.
+* Link privado.
+* Link protegido por senha.
+* Link com data de expiração.
+* Link somente leitura.
+* Link para download.
+
+### Pastas
+
+* Compartilhamento completo.
+* Compartilhamento somente leitura.
+* Compartilhamento com usuários internos.
+
+### Permissões
+
+Implementar RBAC com:
+
+* Administrador.
+* Usuário comum.
+* Usuário convidado.
+
+## Visualização de arquivos
+
+Implementar preview para:
+
+* PDF.
+* Imagens.
+* Vídeos.
+* Áudios.
+* TXT.
+* Markdown.
+* Arquivos Office através de visualizador.
+
+## Busca
+
+Implementar busca global por:
+
+* Nome.
+* Tipo.
+* Data.
+* Tamanho.
+* Proprietário.
+* Conteúdo textual indexado (OCR opcional).
+
+## Administração
+
+Painel administrativo contendo:
+
+* Lista de usuários.
+* Espaço consumido por usuário.
+* Limites por usuário.
+* Bloquear usuários.
+* Desbloquear usuários.
+* Exclusão de usuários.
+* Logs de auditoria.
+* Estatísticas gerais.
+
+## Segurança
+
+Implementar:
+
+* Criptografia TLS.
+* Hash de senha usando Argon2.
+* Validação de MIME Type.
+* Antivírus opcional com ClamAV.
+* Proteção CSRF.
+* Proteção XSS.
+* Proteção contra Path Traversal.
+* Logs de auditoria.
+* Limitação de requisições.
+* Política de senhas fortes.
+* Tokens temporários de compartilhamento.
+
+## Banco de dados
+
+Modelar entidades como:
+
+* User
+* Session
+* Folder
+* File
+* FileVersion
+* SharedLink
+* Permission
+* Role
+* TrashItem
+* AuditLog
+* Upload
+* Notification
+
+Forneça o schema Prisma completo.
+
+## API
+
+Gerar endpoints REST completos para:
+
+* autenticação;
+* usuários;
+* arquivos;
+* pastas;
+* compartilhamentos;
+* lixeira;
+* administração;
+* notificações.
+
+Documentar tudo via Swagger.
+
+## Interface
+
+Criar interface inspirada no Google Drive.
+
+Recursos:
+
+* tema claro e escuro;
+* responsiva;
+* tabela e modo grade;
+* menu lateral;
+* breadcrumbs;
+* contexto com botão direito;
+* atalhos de teclado;
+* notificações toast;
+* drag and drop entre pastas.
+
+## Segunda fase (cliente de sincronização)
+
+Após a versão web estar pronta, desenvolver um aplicativo desktop semelhante ao OneDrive.
+
+Tecnologias sugeridas:
+
+* Electron + TypeScript.
+
+Funcionalidades:
+
+* Login na conta.
+* Escolher pasta local para sincronização.
+* Detectar alterações automaticamente.
+* Upload automático.
+* Download automático.
+* Sincronização bidirecional.
+* Controle de conflitos.
+* Histórico de versões.
+* Ícone na bandeja do sistema.
+* Pausar sincronização.
+* Limitar velocidade de upload/download.
+* Inicialização junto com o sistema operacional.
+
+## Terceira fase (integração como unidade de rede)
+
+Implementar uma solução para montar os arquivos como se fossem uma pasta local do computador.
+
+Avaliar e implementar uma das opções:
+
+* WebDAV;
+* SFTP virtual;
+* FUSE;
+* cliente próprio.
+
+O objetivo é permitir que o usuário utilize o armazenamento como se fosse uma pasta nativa do Windows, semelhante ao OneDrive.
+
+## Infraestrutura
+
+Forneça:
+
+* Dockerfiles;
+* docker-compose;
+* configuração do Nginx;
+* HTTPS com Let's Encrypt;
+* variáveis de ambiente;
+* scripts de deploy;
+* scripts de backup;
+* política de retenção;
+* estratégia de atualização sem downtime.
+
+## Escalabilidade futura
+
+Planeje o sistema para permitir posteriormente:
+
+* migração do armazenamento local para MinIO;
+* migração para Amazon S3;
+* múltiplos servidores de arquivos;
+* CDN;
+* processamento assíncrono;
+* microserviços.
+
+## Entrega
+
+Desenvolva o projeto em etapas.
+
+Antes de implementar cada etapa:
+
+1. Explique a arquitetura.
+2. Liste os arquivos que serão criados.
+3. Explique as decisões técnicas.
+4. Gere o código completo daquela etapa.
+5. Aguarde aprovação antes de continuar para a próxima etapa.
+
+Sempre produza código pronto para produção, seguindo princípios SOLID, Clean Architecture e boas práticas de segurança.

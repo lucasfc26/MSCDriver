@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Nexus Cloud</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Brand Anchors -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "on-secondary-container": "#67615f",
+                      "tertiary-container": "#006e9d",
+                      "outline-variant": "#e4beba",
+                      "surface-tint": "#b91d20",
+                      "on-background": "#271816",
+                      "surface-bright": "#fff8f7",
+                      "surface-container": "#ffe9e6",
+                      "error": "#ba1a1a",
+                      "tertiary": "#00557a",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fff8f7",
+                      "primary-fixed": "#ffdad6",
+                      "inverse-surface": "#3e2c2a",
+                      "secondary-fixed-dim": "#cdc5c2",
+                      "outline": "#8f706c",
+                      "on-primary-container": "#ffe0dd",
+                      "secondary": "#635d5b",
+                      "on-surface": "#271816",
+                      "surface-dim": "#f0d4d0",
+                      "primary": "#a20513",
+                      "on-secondary-fixed": "#1e1b19",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#5b403d",
+                      "on-tertiary-fixed": "#001e2f",
+                      "secondary-container": "#e7dedb",
+                      "inverse-on-surface": "#ffedea",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#ffb4ac",
+                      "surface": "#fff8f7",
+                      "primary-fixed-dim": "#ffb4ac",
+                      "surface-container-low": "#fff0ef",
+                      "secondary-fixed": "#e9e1de",
+                      "tertiary-fixed": "#c8e6ff",
+                      "tertiary-fixed-dim": "#88ceff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#f9dcd9",
+                      "primary-container": "#c62828",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#f9dcd9",
+                      "surface-container-high": "#ffe2de",
+                      "on-primary-fixed": "#410003",
+                      "on-primary-fixed-variant": "#93000e",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#4b4644",
+                      "on-tertiary-container": "#d1eaff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "unit": "4px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "display-lg": ["Manrope"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Manrope"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom input focus glow */
+        .input-glow:focus {
+            box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center relative overflow-hidden text-on-background selection:bg-primary-container selection:text-on-primary">
+<!-- Abstract Background Texture -->
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-40 mix-blend-multiply" data-alt="A subtle, high-end abstract digital background suitable for a minimalist corporate cloud storage login screen. The image features soft, flowing geometric shapes reminiscent of clouds and layered digital folders, rendered in a bright, light-mode palette of pristine whites, very pale beige, and faint touches of warm gray. The lighting is soft, diffused, and high-key, creating a clean, professional, and trustworthy atmosphere. The overall composition is extremely minimal, providing texture without distracting from the foreground UI. The style blends quiet luxury with modern enterprise tech aesthetics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD23fCM6hw8dpJquqrDbs1rKQI4kT2_VMtJ5x9zzARGBhqPy610V0rc8Zte1GH6apxEW5qLND4KKJ9sszBWEKeYmAnI-XXz1NfpmG4RQlS2TV__6RD45rsEwM_K7wC35zz8yHDTJvO6ZidiovMVG_6Mu42Glr5dPyFJM1bCk5Ook3dFcKIOW3fwE5L7OvxLHRXQGJSgjFwUQ11ZFxKOiqKRuQRPNVloQnkAAQn63IL_r04X9zRynphl6UkPXUQmC675A1HW0wpc-he');">
+</div>
+<!-- Geometric Accent Shapes (CSS) -->
+<div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-surface-container-high/40 blur-[80px] z-0"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-primary-fixed/20 blur-[100px] z-0"></div>
+<!-- Login Card -->
+<main class="relative z-10 w-full max-w-[440px] mx-margin-mobile">
+<div class="bg-surface-container-lowest rounded-[16px] border border-secondary-container p-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] backdrop-blur-sm">
+<!-- Header/Logo -->
+<div class="flex flex-col items-center mb-stack-lg text-center">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center mb-stack-md shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-unit">Nexus Cloud</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Armazenamento Corporativo</p>
+</div>
+<!-- Form -->
+<form action="#" class="flex flex-col gap-stack-md" method="POST">
+<!-- Email Field -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="email">E-mail</label>
+<input class="w-full h-[44px] bg-surface-container-lowest border border-secondary-container rounded-[8px] px-[16px] font-body-md text-body-md text-on-background placeholder:text-secondary-fixed-dim transition-all focus:outline-none focus:border-surface-tint input-glow" id="email" name="email" placeholder="nome@empresa.com" required="" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-unit">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="password">Senha</label>
+</div>
+<input class="w-full h-[44px] bg-surface-container-lowest border border-secondary-container rounded-[8px] px-[16px] font-body-md text-body-md text-on-background placeholder:text-secondary-fixed-dim transition-all focus:outline-none focus:border-surface-tint input-glow" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-unit mb-unit">
+<div class="flex items-center gap-[8px]">
+<input class="w-[16px] h-[16px] rounded-[4px] border-secondary-container text-primary-container focus:ring-primary/20 bg-surface-container-lowest cursor-pointer transition-colors" id="remember" name="remember" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface-variant cursor-pointer select-none" for="remember">Lembrar-me</label>
+</div>
+<a class="font-body-md text-[13px] text-surface-tint font-medium hover:underline transition-all" href="#">Esqueceu a senha?</a>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-[48px] bg-primary-container text-on-primary font-headline-md text-[16px] rounded-xl flex items-center justify-center gap-[8px] hover:bg-surface-tint transition-all active:scale-[0.98] mt-stack-sm shadow-sm" type="submit">
+                    Entrar
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Footer Link -->
+<div class="text-center mt-stack-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Não tem uma conta? 
+                <a class="text-surface-tint font-medium hover:underline transition-all ml-unit" href="#">Cadastre-se</a>
+</p>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Cloud - Novo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-secondary-container": "#67615f",
+                        "tertiary-container": "#006e9d",
+                        "outline-variant": "#e4beba",
+                        "surface-tint": "#b91d20",
+                        "on-background": "#271816",
+                        "surface-bright": "#fff8f7",
+                        "surface-container": "#ffe9e6",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00557a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f7",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#3e2c2a",
+                        "secondary-fixed-dim": "#cdc5c2",
+                        "outline": "#8f706c",
+                        "on-primary-container": "#ffe0dd",
+                        "secondary": "#635d5b",
+                        "on-surface": "#271816",
+                        "surface-dim": "#f0d4d0",
+                        "primary": "#a20513",
+                        "on-secondary-fixed": "#1e1b19",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "on-tertiary-fixed": "#001e2f",
+                        "secondary-container": "#e7dedb",
+                        "inverse-on-surface": "#ffedea",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb4ac",
+                        "surface": "#fff8f7",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "surface-container-low": "#fff0ef",
+                        "secondary-fixed": "#e9e1de",
+                        "tertiary-fixed": "#c8e6ff",
+                        "tertiary-fixed-dim": "#88ceff",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#f9dcd9",
+                        "primary-container": "#c62828",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "on-primary-fixed": "#410003",
+                        "on-primary-fixed-variant": "#93000e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#4b4644",
+                        "on-tertiary-container": "#d1eaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F0EB;
+            color: theme('colors.on-background');
+        }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .backdrop-blur-overlay {
+            backdrop-filter: blur(12px);
+            background-color: rgba(39, 24, 22, 0.4);
+        }
+        /* Subtly hide scrollbar for clean modal look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-hidden flex h-screen bg-surface">
+<!-- Background App State (My Drive) -->
+<div class="flex w-full h-full filter blur-[2px] opacity-80 pointer-events-none select-none transition-all duration-300">
+<!-- SideNavBar -->
+<nav class="w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant bg-surface flex flex-col py-spacing-stack-lg z-30">
+<div class="px-gutter mb-stack-lg flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Nexus Cloud</h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Enterprise Storage</p>
+</div>
+</div>
+<div class="flex-1 px-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-primary font-bold bg-primary/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="font-body-md text-body-md">My Drive</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container hover:bg-secondary-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-body-md text-body-md">Recent</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container hover:bg-secondary-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Shared</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container hover:bg-secondary-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span class="font-body-md text-body-md">Favorites</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-container hover:bg-secondary-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">delete</span>
+<span class="font-body-md text-body-md">Trash</span>
+</a>
+</div>
+<div class="px-4 mt-auto">
+<div class="mb-4 px-4 py-2 text-on-secondary-container hover:bg-secondary-container transition-colors rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</div>
+<button class="w-full bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md py-3 rounded-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+                    Upgrade Storage
+                </button>
+</div>
+</nav>
+<!-- Main Canvas Area -->
+<main class="flex-1 ml-[260px] flex flex-col bg-background">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-20 border-b border-outline-variant bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-spacing-margin-desktop">
+<div class="flex-1 max-w-2xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/60" placeholder="Pesquisar no Nexus Cloud" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high transition-all flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high transition-all flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2 ml-4">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New
+                    </button>
+</div>
+</header>
+<!-- Dummy Content for visual anchor -->
+<div class="p-spacing-margin-desktop flex-1">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-lg">My Drive</h2>
+<div class="grid grid-cols-4 gap-6">
+<div class="h-32 bg-surface-container-lowest border border-outline-variant rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest border border-outline-variant rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest border border-outline-variant rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest border border-outline-variant rounded-xl"></div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay (Active State) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-overlay transition-opacity duration-300" id="newModalOverlay">
+<!-- Modal Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[24px] shadow-[0px_16px_40px_rgba(0,0,0,0.08)] w-full max-w-lg p-8 transform scale-100 opacity-100 transition-all duration-300" id="newModalContainer">
+<!-- Header -->
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background">Criar Novo</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Selecione o tipo de item para adicionar ao My Drive</p>
+</div>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Option: New Folder -->
+<button class="group flex items-start gap-5 p-5 rounded-xl border border-outline-variant hover:border-primary/30 hover:bg-surface-container-high hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all duration-200 text-left w-full focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface group-hover:text-primary group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">create_new_folder</span>
+</div>
+<div class="flex-1 pt-1">
+<h3 class="font-headline-lg text-headline-lg !text-[18px] text-on-background group-hover:text-primary transition-colors">Nova Pasta</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Crie um diretório para organizar seus projetos.</p>
+</div>
+</button>
+<!-- Option: File Upload -->
+<button class="group flex items-start gap-5 p-5 rounded-xl border border-outline-variant hover:border-primary/30 hover:bg-surface-container-high hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all duration-200 text-left w-full focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface group-hover:text-primary group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[32px]">upload_file</span>
+</div>
+<div class="flex-1 pt-1">
+<h3 class="font-headline-lg text-headline-lg !text-[18px] text-on-background group-hover:text-primary transition-colors">Upload de Arquivo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Envie documentos, imagens ou outros arquivos.</p>
+</div>
+</button>
+<!-- Option: Folder Upload -->
+<button class="group flex items-start gap-5 p-5 rounded-xl border border-outline-variant hover:border-primary/30 hover:bg-surface-container-high hover:shadow-[0px_4px_20px_rgba(0,0,0,0.04)] transition-all duration-200 text-left w-full focus:outline-none focus:ring-2 focus:ring-primary/20">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface group-hover:text-primary group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[32px]">drive_folder_upload</span>
+</div>
+<div class="flex-1 pt-1">
+<h3 class="font-headline-lg text-headline-lg !text-[18px] text-on-background group-hover:text-primary transition-colors">Upload de Pasta</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Envie uma pasta inteira e mantenha sua estrutura.</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+<script>
+        // Simple script to handle modal animation for demonstration (though task implies it's open by default)
+        function closeModal() {
+            const overlay = document.getElementById('newModalOverlay');
+            const container = document.getElementById('newModalContainer');
+            
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+        }
+
+        // Add a small hover effect script for the icons inside buttons for that extra 'premium' feel
+        document.querySelectorAll('.group').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                icon.style.transform = 'translateY(-2px) scale(1.05)';
+                icon.style.transition = 'transform 0.2s cubic-bezier(0.2, 0, 0, 1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                icon.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body></html>
